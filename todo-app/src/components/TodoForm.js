@@ -1,14 +1,23 @@
 import React, { useReducer } from "react";
+import uuid from 'uuid'
 import {
-  reducer,
-  initialState,
-  INPUT_CHANGE,
+   INPUT_CHANGE,
   SUBMIT_TODO,
 } from "../reducers/reducer";
 
-const TodoForm = props => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const TodoForm = ({state, dispatch})=> {
 
+ 
+  const onSubmit = event => {
+    event.preventDefault()
+   
+ const newTodo = {
+   id: uuid(),
+   item: state.addTodo.item,
+   completed: false 
+ }
+ dispatch({ type: SUBMIT_TODO, payload: newTodo})
+}
   const onChange = event => {
     const todoItem = event.target.name
     const todoValue = event.target.value
@@ -18,16 +27,17 @@ const TodoForm = props => {
     });
   };
 
+
   return (
     <div>
       <div>
-        <form >
+        <form onSubmit={onSubmit}>
           <input
             name="item"
             type="text"
             placeholder="Add todo"
             onChange={onChange}
-            value={state.item}
+            value={state.addTodo.item}
                    />
           <button type="submit">Submit Todo</button>
         </form>

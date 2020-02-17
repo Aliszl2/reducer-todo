@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import {initialState } from "../reducers/reducer";
+import { initialState } from "../reducers/reducer";
 import "./Todo.css";
 
 const Todo = props => {
