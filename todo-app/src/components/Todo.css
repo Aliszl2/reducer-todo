@@ -1,0 +1,17 @@
+.completed {
+    text-decoration: line-through;
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.notCompleted {
+    text-decoration: none;
+ 
+
+}
+
+.todo{
+    display: flex;
+    flex-direction: row;
+}
