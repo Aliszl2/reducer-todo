@@ -14,8 +14,6 @@ export const REMOVE_TODO = "REMOVE_TODO";
 
 
 export function reducer(state, action) {
-  
-    default:
-      return state;
+
 }
 
