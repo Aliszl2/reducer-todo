@@ -9,7 +9,7 @@ function App() {
     <div className="App">
  To Do List
  <TodoForm state={state} dispatch={dispatch}/>
- <TodoList state={state} />
+ <TodoList state={state} dispatch={dispatch} />
     </div>
   );
 }
