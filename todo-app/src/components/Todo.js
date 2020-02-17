@@ -1,5 +1,6 @@
 import React from "react";
 import { TOGGLE_TODO_COMPLETE } from "../reducers/reducer";
+import { REMOVE_TODO } from "../reducers/reducer";
 import "./Todo.css";
 
 const Todo = ({ todo, state, dispatch }) => {
@@ -15,6 +16,11 @@ const Todo = ({ todo, state, dispatch }) => {
         >
           Complete
         </button>
+        <button
+             onClick={event => {
+              dispatch({ type: REMOVE_TODO, payload: todo.id });
+            }}
+            >Delete</button>
       </div>
     </div>
   );

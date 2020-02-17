@@ -16,6 +16,7 @@ export const TOGGLE_TODO_COMPLETE = "TOGGLE_TODO_COMPLETE";
 export const REMOVE_TODO = "REMOVE_TODO";
 
 export function reducer(state, action) {
+  const todoId = action.payload;
   switch (action.type) {
     //handleChange
     case INPUT_CHANGE:
@@ -40,13 +41,19 @@ export function reducer(state, action) {
       return {
         ...state,
         todoList: state.todoList.map(todo => {
-          const todoId = action.payload;
           if (todo.id === todoId) {
-            return { 
-              ...todo, completed: !todo.completed 
-          }}
+            return {
+              ...todo,
+              completed: !todo.completed
+            };
+          }
           return todo;
         })
+      };
+    case REMOVE_TODO:
+      return {
+        ...state,
+        todoList: state.todoList.filter(todo => todo.id !== todoId)
       };
     default:
       return state;

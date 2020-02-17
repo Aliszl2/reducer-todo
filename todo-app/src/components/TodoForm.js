@@ -42,7 +42,7 @@ const TodoForm = ({state, dispatch})=> {
           <button type="submit">Submit Todo</button>
         </form>
       </div>
-      <button>Clear completed</button>
+      {/* <button>Clear completed in todoForm</button> */}
     </div>
   );
 };
